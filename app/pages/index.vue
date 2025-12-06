@@ -1,106 +1,131 @@
 <template>
 	<v-container>
-		<h2>
-			<v-icon icon="mdi-vuetify" />
-			Starter Template
-		</h2>
-		<h5>Nuxt 3 / Vuetify / Graphql / Pinia</h5>
-		<h3 class="my-5">
-			Example Pinia
-			<v-chip color="blue">useCounter</v-chip>
-		</h3>
-		<v-card class="mx-auto my-12" max-width="374">
-			<v-card-title class="text-blue">Pinia useCounter()</v-card-title>
-			<v-card-item>
-				<v-card-text>
-					<v-chip>count:</v-chip>
-					{{ store.count }}
-				</v-card-text>
-				<v-card-text>
-					<v-chip>doubleCount:</v-chip>
-					{{ store.doubleCount }}
-				</v-card-text>
-			</v-card-item>
+		<v-row align="center" justify="center" class="my-12">
+			<v-col cols="12" md="8" class="text-center">
+				<v-icon size="120" color="primary" class="mb-4">mdi-rocket-launch</v-icon>
+				<h1 class="text-h2 font-weight-bold mb-4">SpaceX Explorer</h1>
+				<p class="text-h5 text-grey mb-8">
+					Explore SpaceX launches, rockets, and missions powered by GraphQL
+				</p>
+				<v-btn size="x-large" color="primary" to="/launches" prepend-icon="mdi-rocket">
+					Explore Launches
+				</v-btn>
+			</v-col>
+		</v-row>
 
-			<v-card-actions><v-btn color="blue" @click="store.increment()">Increment</v-btn></v-card-actions>
-		</v-card>
+		<v-row class="my-12">
+			<v-col cols="12" md="4">
+				<v-card elevation="4" class="h-100">
+					<v-card-text class="text-center pa-6">
+						<v-icon size="64" color="blue" class="mb-4">mdi-rocket-launch-outline</v-icon>
+						<h3 class="text-h5 mb-3">Browse Launches</h3>
+						<p class="text-body-1">
+							Explore all SpaceX launches with detailed mission information, dates, and launch
+							sites.
+						</p>
+					</v-card-text>
+				</v-card>
+			</v-col>
 
-		<h3 class="my-5">
-			Example Vuetify
-			<v-chip color="blue">Card</v-chip>
-		</h3>
-		<v-card class="mx-auto my-12" max-width="374">
-			<template #progress>
-				<v-progress-linear color="deep-purple" height="10" indeterminate />
-			</template>
+			<v-col cols="12" md="4">
+				<v-card elevation="4" class="h-100">
+					<v-card-text class="text-center pa-6">
+						<v-icon size="64" color="green" class="mb-4">mdi-filter-variant</v-icon>
+						<h3 class="text-h5 mb-3">Filter & Sort</h3>
+						<p class="text-body-1">
+							Filter launches by year and sort by date to find exactly what you're looking for.
+						</p>
+					</v-card-text>
+				</v-card>
+			</v-col>
 
-			<v-img height="250" src="https://cdn.vuetifyjs.com/images/cards/cooking.png" />
+			<v-col cols="12" md="4">
+				<v-card elevation="4" class="h-100">
+					<v-card-text class="text-center pa-6">
+						<v-icon size="64" color="red" class="mb-4">mdi-heart</v-icon>
+						<h3 class="text-h5 mb-3">Save Favorites</h3>
+						<p class="text-body-1">
+							Mark your favorite rockets and access them anytime from your personalized
+							favorites list.
+						</p>
+					</v-card-text>
+				</v-card>
+			</v-col>
+		</v-row>
 
-			<v-card-title>Cafe Badilico</v-card-title>
+		<v-row class="my-12">
+			<v-col cols="12">
+				<v-card color="primary" dark elevation="8">
+					<v-card-text class="pa-8">
+						<v-row align="center">
+							<v-col cols="12" md="8">
+								<h2 class="text-h4 mb-3">Technologies Used</h2>
+								<v-chip-group>
+									<v-chip color="white" text-color="primary">Nuxt 3</v-chip>
+									<v-chip color="white" text-color="primary">Vue 3</v-chip>
+									<v-chip color="white" text-color="primary">Vuetify</v-chip>
+									<v-chip color="white" text-color="primary">GraphQL</v-chip>
+									<v-chip color="white" text-color="primary">Pinia</v-chip>
+									<v-chip color="white" text-color="primary">TypeScript</v-chip>
+								</v-chip-group>
+							</v-col>
+							<v-col cols="12" md="4" class="text-center">
+								<v-btn
+									size="large"
+									color="white"
+									href="https://github.com/stephenjason89/nuxt-vuetify-graphql-pinia-starter"
+									target="_blank"
+									prepend-icon="mdi-github"
+								>
+									View on GitHub
+								</v-btn>
+							</v-col>
+						</v-row>
+					</v-card-text>
+				</v-card>
+			</v-col>
+		</v-row>
 
-			<v-card-text>
-				<v-row align="center" class="mx-0">
-					<ClientOnly>
-						<v-rating :value="4.5" color="amber" dense half-increments readonly size="14" />
-						<div class="grey--text ms-4">4.5 (413)</div>
-					</ClientOnly>
-				</v-row>
-
-				<div class="my-4 text-subtitle-1">$ • Italian, Cafe</div>
-
-				<div>
-					Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio
-					seating.
-				</div>
-			</v-card-text>
-
-			<v-divider class="mx-4" />
-
-			<v-card-title>Tonight's availability</v-card-title>
-
-			<v-card-text>
-				<v-chip-group v-model="selection" active-class="deep-purple accent-4 white--text" column>
-					<v-chip>5:30PM</v-chip>
-
-					<v-chip>7:30PM</v-chip>
-
-					<v-chip>8:00PM</v-chip>
-
-					<v-chip>9:00PM</v-chip>
-				</v-chip-group>
-			</v-card-text>
-
-			<v-card-actions>
-				<v-btn color="deep-purple lighten-2">Reserve</v-btn>
-			</v-card-actions>
-		</v-card>
-		<h3 class="my-5">
-			Example Vuetify
-			<v-chip color="blue">SimpleTable</v-chip>
-			<v-chip color="orange">Data from spaceX graphql</v-chip>
-		</h3>
-		<p>There are {{ ships?.length || 0 }} ships.</p>
-		<v-table>
-			<thead>
-				<tr>
-					<th class="text-left">Name</th>
-					<th class="text-left">Active</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr v-for="ship in ships" :key="ship.name">
-					<td>{{ ship.name }}</td>
-					<td>
-						<v-chip :color="ship.active ? 'green' : 'red'">{{ ship.active }}</v-chip>
-					</td>
-				</tr>
-			</tbody>
-		</v-table>
+		<!-- Stats Section -->
+		<v-row class="my-12">
+			<v-col cols="12" class="text-center mb-6">
+				<h2 class="text-h3 font-weight-bold">Quick Stats</h2>
+			</v-col>
+			<v-col cols="12" md="4">
+				<v-card elevation="4">
+					<v-card-text class="text-center pa-6">
+						<v-icon size="48" color="primary" class="mb-3">mdi-rocket</v-icon>
+						<div class="text-h3 font-weight-bold">{{ ships?.length || 0 }}</div>
+						<div class="text-h6 text-grey">Ships Available</div>
+					</v-card-text>
+				</v-card>
+			</v-col>
+			<v-col cols="12" md="4">
+				<v-card elevation="4">
+					<v-card-text class="text-center pa-6">
+						<v-icon size="48" color="success" class="mb-3">mdi-check-circle</v-icon>
+						<div class="text-h3 font-weight-bold">{{ activeShips }}</div>
+						<div class="text-h6 text-grey">Active Ships</div>
+					</v-card-text>
+				</v-card>
+			</v-col>
+			<v-col cols="12" md="4">
+				<v-card elevation="4">
+					<v-card-text class="text-center pa-6">
+						<v-icon size="48" color="red" class="mb-3">mdi-heart</v-icon>
+						<div class="text-h3 font-weight-bold">{{ favoritesCount }}</div>
+						<div class="text-h6 text-grey">Your Favorites</div>
+					</v-card-text>
+				</v-card>
+			</v-col>
+		</v-row>
 	</v-container>
 </template>
+
 <script lang="ts" setup>
-const store = useCounter()
-const selection = ref(0)
+const favoritesStore = useFavoritesStore()
+const favoritesCount = computed(() => favoritesStore.favorites.length)
+
 const query = gql`
 	query getShips {
 		ships {
@@ -118,4 +143,5 @@ const { data } = useAsyncQuery<{
 	}[]
 }>(query)
 const ships = computed(() => data.value?.ships ?? [])
+const activeShips = computed(() => ships.value.filter((s) => s.active).length)
 </script>
