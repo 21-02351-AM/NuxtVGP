@@ -5,7 +5,7 @@
 - **Name**: Alfred Miguel B. Lopez
 - **Email**: amb.lopez7@gmail.com
 - **GitHub**: https://github.com/21-02351-AM
-- **Date**: December 8, 2024
+- **Date**: December 7, 2024
 
 ## Project Links
 
@@ -166,5 +166,5 @@ Successfully completed all 8 main tasks and 4 bonus tasks. The application demon
 ---
 
 **Submitted by:** Alfred Miguel B. Lopez  
-**Date:** December 8, 2024  
+**Date:** December 7, 2024  
 **Email:** amb.lopez7@gmail.com
